@@ -120,8 +120,8 @@ accidentally read a stale field left over from assuming the wrong shape.
 ## Verify
 
 ```sh
-clojure -M:test                                                       # JVM
-nbb --classpath "$(clojure -A:cljs -Spath)" scripts/verify-cljs.cljk  # ClojureScript
+kbb -M:test                                                       # JVM
+kbb --backend sci --classpath "$(kbb -A:cljs -Spath)" scripts/verify-cljs.cljk  # ClojureScript
 ```
 
 Real counts as run for this README: **23 tests, 6772 assertions, 0
@@ -157,8 +157,8 @@ bitwise operators are 32-bit *signed* (JS semantics), any Logical Address
 with its top byte's high bit set (>=0x80000000 — half the address space,
 including the test suite's own `0xDEADBEEF` worked example) came back as
 a **negative host number** with the correct bit pattern but the wrong
-sign. `clojure -M:test` passed clean; only
-`nbb .../verify-cljs.cljs` caught it. Fixed with a final
+sign. `kbb -M:test` passed clean; only
+`kbb --backend sci .../verify-cljs.cljk` caught it. Fixed with a final
 `unsigned-bit-shift-right ... 0` — see `rd-u32le`'s docstring. The
 identical bug shape was independently caught the same way in
 `org-can-cia-canopen`'s PDO mapping-entry codec and
