@@ -1,4 +1,4 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; Run the suite on the ClojureScript side.
 ;;
 ;; Not a formality. `ethercat.frame` and `ethercat.datagram` pack an
@@ -8,7 +8,7 @@
 ;; bitwise operators are the ones with a 32-bit ceiling in the first
 ;; place.
 ;;
-;;   nbb --classpath "$(clojure -A:cljs -Spath)" scripts/verify-cljs.cljk
+;;   kbb --backend sci --classpath "$(kbb -A:cljs -Spath)" scripts/verify-cljs.cljk
 (ns verify-cljs
   (:require [clojure.test :as t]
             [ethercat.core-test]))
