@@ -121,7 +121,7 @@ accidentally read a stale field left over from assuming the wrong shape.
 
 ```sh
 clojure -M:test                                                       # JVM
-nbb --classpath "$(clojure -A:cljs -Spath)" scripts/verify-cljs.cljs  # ClojureScript
+nbb --classpath "$(clojure -A:cljs -Spath)" scripts/verify-cljs.cljk  # ClojureScript
 ```
 
 Real counts as run for this README: **23 tests, 6772 assertions, 0
